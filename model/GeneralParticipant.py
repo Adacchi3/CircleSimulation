@@ -8,10 +8,19 @@ class GeneralParticipant:
         self.budget = 0
         while( self.budget <= 0):
             self.budget = math.floor(np.random.normal(3851.35,3641.7))
+        self.money = self.budget
         self.start = np.random.randint(71)
         self.time = np.random.randint(71)
         self.alpha = np.random.rand()
         self.beta = 1 - self.alpha
         self.log = []
         self.circlelist = []
-        self.like_category = np.random.randinit(47)
+        self.like_category = np.random.randint(47)
+
+    def show_info(self):
+        str =  "{{\'id\':{0.id}, \'budget\': {0.budget}, \'money\': {0.money}, \'start\': \'{0.start}, \'time\': \'{0.time}\' \'alpha\': {0.alpha}, \'beta\': {0.beta}, \'like_category\': {0.like_category}, \'log\': {0.log}, \'circlelist\': {0.circlelist}}}".format(self)
+        return str
+
+if __name__ == '__main__':
+    agent = GeneralParticipant(1)
+    print(agent.show_info())
