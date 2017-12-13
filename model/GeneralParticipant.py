@@ -19,7 +19,7 @@ class GeneralParticipant:
         self.like_category = np.random.randint(47)
 
     def show_info(self):
-        str =  "{{\'id\':{0.id}, \'budget\': {0.budget}, \'money\': {0.money}, \'start\': \'{0.start}, \'time\': \'{0.time}\' \'alpha\': {0.alpha}, \'beta\': {0.beta}, \'like_category\': {0.like_category}, \'log\': {0.log}, \'circlelist\': {0.circlelist}}}".format(self)
+        str =  "{{\'id\': {0.id}, \'budget\': {0.budget}, \'money\': {0.money}, \'start\': {0.start}, \'time\': {0.time}, \'alpha\': {0.alpha}, \'beta\': {0.beta}, \'like_category\': {0.like_category}, \'log\': {0.log}, \'circlelist\': {0.circlelist}}}".format(self)
         return str
 
     def check_ad(self, circles):
