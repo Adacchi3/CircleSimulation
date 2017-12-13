@@ -22,11 +22,10 @@ class CircleParticipant:
         self.category = category
         self.price = price
 
+    def show_info(self):
+        str =  "{{\'id\': {0.id}, \'bookfee\': {0.bookfee}, \'book_quality\': {0.book_quality}, \'ad\': {0.ad}, \'dm\': {0.dm}, \'category\': {0.category}, \'price\': {0.price}}}".format(self)
+        return str
 
 if __name__ == '__main__':
     agent = CircleParticipant(1,48400,0.7,0.5,0.5,1,800)
-    print(agent.id)
-    print(agent.price)
-    print(agent.ad)
-    print(agent.dm)
-    print(agent.book_quality)
+    print(agent.show_info())
