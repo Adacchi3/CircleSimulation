@@ -1,4 +1,3 @@
-from CircleParticipant import *
 import numpy as np
 import math
 
@@ -27,7 +26,6 @@ class GeneralParticipant:
             if(np.random.rand()<0.1):
                 self.circlelist.append(circles[i].id)
         return
-
 """
 if __name__ == '__main__':
     agent = GeneralParticipant(1)
