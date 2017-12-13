@@ -14,4 +14,4 @@ class GeneralParticipant:
         self.beta = 1 - self.alpha
         self.log = []
         self.circlelist = []
-
+        self.like_category = np.random.randinit(47)
