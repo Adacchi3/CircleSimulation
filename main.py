@@ -51,10 +51,10 @@ def select_circle2(agent, a, b):
     return selected
 
 if __name__ == '__main__':
-    general_number = 3500
-    circle_number = 800
+    general_number = 10
+    circle_number = 8
     steps = 72
-    N = 20
+    N = 3
     circles = []
     generals = []
 
@@ -73,6 +73,12 @@ if __name__ == '__main__':
         generals[i].check_ad(circles)
 
     for n in range(N):
+
+        for a in generals:
+            a.log = []
+        for c in circles:
+            c.log = []
+
         for i in range(steps):
             sys.stdout.write("\r%d回目：%d/%d" % (n+1, i+1, steps))
             np.random.shuffle(circles)
@@ -109,6 +115,12 @@ if __name__ == '__main__':
         generals[i].check_ad(circles)
 
     for n in range(N):
+
+        for a in generals:
+            a.log = []
+        for c in circles:
+            c.log = []
+
         for i in range(steps):
             sys.stdout.write("\r%d回目：%d/%d" % (n+1, i+1, steps))
             np.random.shuffle(circles)
