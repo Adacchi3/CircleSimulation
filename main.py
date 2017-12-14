@@ -52,14 +52,14 @@ def select_circle2(agent, a, b):
     return selected
 
 if __name__ == '__main__':
-    general_number = 3500
-    circle_number = 800
+    general_number = 160000 #160000
+    circle_number = 10600 #10600
     steps = 72
-    N = 10
+    N = 20 #20
     circles = []
     generals = []
 
-    watashi = CircleParticipant(0,48400,0.7,0.5,0.4,1,800)
+    watashi = CircleParticipant(0,30000,0.7,0.5,0.4,1,1000)
 
     logs = np.zeros([steps,circle_number,N])
 
@@ -123,8 +123,8 @@ if __name__ == '__main__':
             c.log = []
 
         for i in range(steps):
-            sys.stdout.write("\r%d回目：%d/%d" % (n+1, i+1, steps))
             np.random.shuffle(circles)
+            sys.stdout.write("\r%d回目：%d/%d" % (n+1, i+1, steps))
             for agent in generals:
                 if(agent.start<=i and i<agent.start+agent.time):
                     #サークル選択処理
@@ -163,12 +163,18 @@ if __name__ == '__main__':
     D = D[:,0]
 
     #これは棒グラフ用
-    #C = [0] * len(A)
-    #for i in range(len(A)):
-    #    C[i] = C[i-1]+A[i] if i != 0 else A[i]
-    
+    a = [0] * len(A)
+    for i in range(len(A)):
+        a[i] = a[i-1]+A[i] if i != 0 else A[i]
+
+    b = [0] * len(C)
+    for i in range(len(C)):
+        b[i] = b[i-1]+C[i] if i != 0 else C[i]
+
+    """
     plt.plot(A)
     plt.plot(B)
-    plt.plot(C)
-    plt.plot(D)
+    """
+    plt.bar(range(len(a)),a)
+    plt.bar(range(len(b)),b)
     plt.show()
