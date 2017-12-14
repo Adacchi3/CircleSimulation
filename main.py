@@ -1,9 +1,10 @@
 from model.CircleParticipant import *
 from model.GeneralParticipant import *
 import numpy as np
-import sys, time
+import sys, time, os
 import math
 from matplotlib import pyplot as plt
+from datetime import datetime
 
 def iBuyThisBook(a, c):
     a.money = a.money - c.price
@@ -51,10 +52,10 @@ def select_circle2(agent, a, b):
     return selected
 
 if __name__ == '__main__':
-    general_number = 10
-    circle_number = 8
+    general_number = 3500
+    circle_number = 800
     steps = 72
-    N = 3
+    N = 10
     circles = []
     generals = []
 
@@ -140,6 +141,10 @@ if __name__ == '__main__':
             time.sleep(0.01)
         print()
 
+    date = datetime.now().strftime("%Y%m%d%H%M%S")
+    os.mkdir("./log/"+date)
+    np.save('./log/'+date+'/yes.npy', logs)
+    np.save('./log/'+date+'/no.npy', logs2)
 
     #宣伝ありの売り上げ数平均
     A = np.average(logs, axis=2)
@@ -161,7 +166,7 @@ if __name__ == '__main__':
     #C = [0] * len(A)
     #for i in range(len(A)):
     #    C[i] = C[i-1]+A[i] if i != 0 else A[i]
-
+    
     plt.plot(A)
     plt.plot(B)
     plt.plot(C)
